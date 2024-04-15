@@ -1,0 +1,19 @@
+{
+  "name": ".",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tscircuit": "^0.0.52"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "tsci dev"
+  },
+  "dependencies": {
+    "@tscircuit/react-fiber": "^1.0.34"
+  }
+}
