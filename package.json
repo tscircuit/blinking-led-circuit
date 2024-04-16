@@ -14,6 +14,7 @@
     "dev": "tsci dev"
   },
   "dependencies": {
+    "@tscircuit/builder": "file:.yalc/@tscircuit/builder",
     "@tscircuit/react-fiber": "^1.0.34"
   }
 }

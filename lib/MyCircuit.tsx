@@ -1,11 +1,15 @@
 export const Battery = ({
   name,
   center,
+  pcb_x,
+  pcb_y,
 }: {
   name: string
   center: [number, number]
+  pcb_x: number
+  pcb_y: number
 }) => (
-  <component center={center} name={name}>
+  <component center={center} name={name} pcb_x={pcb_x} pcb_y={pcb_y}>
     <port name="neg" x="-0.5mm" y="0mm" dir="left" />
     <port name="pos" x="0.5mm" y="0mm" dir="right" />
     <schematicbox width="2mm" height="0.5mm" x={0} y={0} />
@@ -50,7 +54,7 @@ export const Battery = ({
 )
 
 export const MyCircuit = () => (
-  <board width="30mm" height="30mm" center_x={0} center_y={0}>
+  <board width="100mm" height="120mm" center_x={0} center_y={0}>
     <resistor
       resistance="100k"
       name="R1"
@@ -79,7 +83,7 @@ export const MyCircuit = () => (
       center={[-3, 2]}
       rotation="90deg"
     />
-    <led name="LED" footprint="0805" center={[3, 0.5]} rotation="90deg" />
+    <diode name="LED" footprint="0805" center={[3, 0.5]} rotation="90deg" />
     <bug
       name="U1"
       center={[0, 0]}
@@ -103,8 +107,8 @@ export const MyCircuit = () => (
         8: "VCC",
       }}
     />
-    <Battery name="B1" center={[-1.5, -3]} />
-    <Battery name="B2" center={[1.5, -3]} />
+    <Battery name="B1" center={[-1.5, -3]} pcb_x={-30} pcb_y={30} />
+    <Battery name="B2" center={[1.5, -3]} pcb_x={-30} pcb_y={-30} />
     <trace from=".B1 > .pos" to=".B2 > .neg" />
     <trace from=".U1 > .DISCH" to=".R2 > .right" />
     <trace from=".R2 > .right" to=".R1 > .left" />

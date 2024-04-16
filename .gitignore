@@ -177,3 +177,6 @@ dist
 .tscircuit
 *.__tmp_entrypoint.tsx
 dist
+.deeper
+.yalc
+yalc.lock
