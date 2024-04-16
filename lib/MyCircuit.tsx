@@ -1,3 +1,5 @@
+import { SmallOutline } from "@tscircuit/footprints"
+
 export const Battery = ({
   name,
   center,
@@ -36,6 +38,7 @@ export const Battery = ({
     />
     <smtpad
       shape="rect"
+      layer="top"
       x={0}
       y={-26 / 2 - 3 / 2}
       width="4.2mm"
@@ -44,6 +47,7 @@ export const Battery = ({
     />
     <smtpad
       shape="rect"
+      layer="top"
       x={0}
       y={26 / 2 + 3 / 2}
       width="4.2mm"
@@ -60,11 +64,15 @@ export const MyCircuit = () => (
       name="R1"
       footprint="0805"
       center={[-3, 0.5]}
+      pcb_x={10}
+      pcb_y={5}
       rotation="90deg"
     />
     <resistor
       resistance="1k"
       name="R2"
+      pcb_x={10}
+      pcb_y={-5}
       footprint="0805"
       center={[-3, -1]}
       rotation="90deg"
@@ -72,6 +80,8 @@ export const MyCircuit = () => (
     <resistor
       resistance="220"
       name="R3"
+      pcb_x={30}
+      pcb_y={5}
       footprint="0805"
       rotation="90deg"
       center={[3, 2]}
@@ -79,13 +89,33 @@ export const MyCircuit = () => (
     <capacitor
       capacitance="10uF"
       name="C1"
+      pcb_x={10}
+      pcb_y={10}
       footprint="0805"
       center={[-3, 2]}
       rotation="90deg"
     />
-    <diode name="LED" footprint="0805" center={[3, 0.5]} rotation="90deg" />
+    <diode
+      name="LED"
+      footprint="0805"
+      center={[3, 0.5]}
+      rotation="90deg"
+      pcb_x={30}
+      pcb_y={0}
+    />
     <bug
       name="U1"
+      pcb_x={20}
+      pcb_y={0}
+      footprint={
+        <SmallOutline
+          pad_count={8}
+          pad_length={0.5}
+          pad_width={1}
+          pad_pitch={1.27}
+          row_spacing={5.5}
+        />
+      }
       center={[0, 0]}
       port_arrangement={{
         left_side: {
@@ -135,9 +165,20 @@ export const MyCircuit = () => (
     <trace from=".U1 > .OUT" to=".LED > .left" />
     <bug
       name="S1"
+      pcb_x={0}
+      pcb_y={-20}
       supplier_part_numbers={{
         jlcpcb: ["C2906280"],
       }}
+      footprint={
+        <SmallOutline
+          pad_count={6}
+          pad_length={1}
+          pad_width={1.5}
+          pad_pitch={2.5}
+          row_spacing={4.5}
+        />
+      }
       center={[4, -1.5]}
       port_arrangement={{
         left_size: 3,
