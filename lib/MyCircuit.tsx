@@ -30,6 +30,22 @@ export const Battery = ({
         y: -0.125,
       }}
     />
+    <smtpad
+      shape="rect"
+      x={0}
+      y={-26 / 2 - 3 / 2}
+      width="4.2mm"
+      height="3mm"
+      port_hints={["pos"]}
+    />
+    <smtpad
+      shape="rect"
+      x={0}
+      y={26 / 2 + 3 / 2}
+      width="4.2mm"
+      height="3mm"
+      port_hints={["neg"]}
+    />
   </component>
 )
 
