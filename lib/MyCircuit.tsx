@@ -33,7 +33,15 @@ export const Battery = ({
   pcb_x: number
   pcb_y: number
 }) => (
-  <component center={center} name={name} pcb_x={pcb_x} pcb_y={pcb_y}>
+  <component
+    center={center}
+    name={name}
+    pcb_x={pcb_x}
+    pcb_y={pcb_y}
+    supplier_part_numbers={{
+      jlcpcb: ["C70377"],
+    }}
+  >
     <port name="neg" x="-0.5mm" y="0mm" dir="left" />
     <port name="pos" x="0.5mm" y="0mm" dir="right" />
     <schematicbox width="2mm" height="0.5mm" x={0} y={0} />
@@ -88,6 +96,9 @@ export const MyCircuit = () => (
       center={[-3, 0.5]}
       pcb_x={10}
       pcb_y={5}
+      supplier_part_numbers={{
+        jlcpcb: ["C620660"],
+      }}
       rotation="90deg"
     />
     <resistor
@@ -95,6 +106,9 @@ export const MyCircuit = () => (
       name="R2"
       pcb_x={10}
       pcb_y={-5}
+      supplier_part_numbers={{
+        jlcpcb: ["C52444"],
+      }}
       footprint="1210"
       center={[-3, -1]}
       rotation="90deg"
@@ -104,6 +118,9 @@ export const MyCircuit = () => (
       name="R3"
       pcb_x={30}
       pcb_y={5}
+      supplier_part_numbers={{
+        jlcpcb: ["C3000591"],
+      }}
       footprint="1210"
       rotation="90deg"
       center={[3, 2]}
@@ -114,12 +131,18 @@ export const MyCircuit = () => (
       pcb_x={10}
       pcb_y={10}
       footprint="1210"
+      supplier_part_numbers={{
+        jlcpcb: ["C92834"],
+      }}
       center={[-3, 2]}
       rotation="90deg"
     />
     <diode
       name="LED"
       footprint="1210"
+      supplier_part_numbers={{
+        jlcpcb: ["C965841"],
+      }}
       center={[3, 0.5]}
       rotation="90deg"
       pcb_x={30}
@@ -129,6 +152,9 @@ export const MyCircuit = () => (
       name="U1"
       pcb_x={20}
       pcb_y={0}
+      supplier_part_numbers={{
+        jlcpcb: ["C596355"],
+      }}
       footprint={
         <SmallOutline
           pad_count={8}
