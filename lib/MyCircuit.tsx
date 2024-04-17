@@ -62,7 +62,7 @@ export const MyCircuit = () => (
     <resistor
       resistance="100k"
       name="R1"
-      footprint="0805"
+      footprint="1210"
       center={[-3, 0.5]}
       pcb_x={10}
       pcb_y={5}
@@ -73,7 +73,7 @@ export const MyCircuit = () => (
       name="R2"
       pcb_x={10}
       pcb_y={-5}
-      footprint="0805"
+      footprint="1210"
       center={[-3, -1]}
       rotation="90deg"
     />
@@ -82,7 +82,7 @@ export const MyCircuit = () => (
       name="R3"
       pcb_x={30}
       pcb_y={5}
-      footprint="0805"
+      footprint="1210"
       rotation="90deg"
       center={[3, 2]}
     />
@@ -91,13 +91,13 @@ export const MyCircuit = () => (
       name="C1"
       pcb_x={10}
       pcb_y={10}
-      footprint="0805"
+      footprint="1210"
       center={[-3, 2]}
       rotation="90deg"
     />
     <diode
       name="LED"
-      footprint="0805"
+      footprint="1210"
       center={[3, 0.5]}
       rotation="90deg"
       pcb_x={30}
@@ -139,7 +139,7 @@ export const MyCircuit = () => (
     />
     <Battery name="B1" center={[-1.5, -3]} pcb_x={-30} pcb_y={30} />
     <Battery name="B2" center={[1.5, -3]} pcb_x={-30} pcb_y={-30} />
-    <trace from=".B1 > .pos" to=".B2 > .neg" />
+    <trace from=".B1 > .pos" thickness="1mm" to=".B2 > .neg" />
     <trace from=".U1 > .DISCH" to=".R2 > .right" />
     <trace from=".R2 > .right" to=".R1 > .left" />
     <trace from=".R1 > .right" to=".C1 > .left" />
@@ -159,7 +159,22 @@ export const MyCircuit = () => (
         },
       ]}
     />
-    <trace from=".U1 > .GND" to=".C1 > .right" />
+    <trace
+      from=".U1 > .GND"
+      to=".C1 > .right"
+      pcb_route_hints={[
+        {
+          x: 14,
+          y: -2,
+          via: true,
+        },
+        {
+          x: 14,
+          y: 2,
+          via: true,
+        },
+      ]}
+    />
     <trace from=".R3 > .right" to=".C1 > .right" />
     <trace from=".LED > .right" to=".R3 > .left" />
     <trace from=".U1 > .OUT" to=".LED > .left" />

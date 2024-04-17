@@ -14,7 +14,8 @@
     "dev": "tsci dev"
   },
   "dependencies": {
+    "@tscircuit/builder": "^1.5.65",
     "@tscircuit/footprints": "0.0.17",
-    "@tscircuit/react-fiber": "^1.0.34"
+    "@tscircuit/react-fiber": "^1.0.35"
   }
 }
