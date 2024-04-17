@@ -1,5 +1,27 @@
 import { SmallOutline } from "@tscircuit/footprints"
 
+export const Trace = ({
+  from,
+  to,
+  thickness,
+  pcb_route_hints,
+  schematic_route_hints,
+}: {
+  from: string
+  to: string
+  thickness?: string
+  pcb_route_hints?: { x: number; y: number; via?: boolean }[]
+  schematic_route_hints?: { x: number; y: number }[]
+}) => (
+  <trace
+    from={from}
+    to={to}
+    thickness={thickness ?? "0.2mm"}
+    pcb_route_hints={pcb_route_hints}
+    schematic_route_hints={schematic_route_hints}
+  />
+)
+
 export const Battery = ({
   name,
   center,
@@ -139,15 +161,16 @@ export const MyCircuit = () => (
     />
     <Battery name="B1" center={[-1.5, -3]} pcb_x={-30} pcb_y={30} />
     <Battery name="B2" center={[1.5, -3]} pcb_x={-30} pcb_y={-30} />
-    <trace from=".B1 > .pos" thickness="1mm" to=".B2 > .neg" />
-    <trace from=".U1 > .DISCH" to=".R2 > .right" />
-    <trace from=".R2 > .right" to=".R1 > .left" />
-    <trace from=".R1 > .right" to=".C1 > .left" />
-    <trace from=".U1 > .THRES" to=".C1 > .left" />
-    <trace from=".U1 > .TRIG" to=".C1 > .left" />
-    <trace
+    <Trace from=".B1 > .pos" thickness="1mm" to=".B2 > .neg" />
+    <Trace from=".U1 > .DISCH" to=".R2 > .right" />
+    <Trace from=".R2 > .right" to=".R1 > .left" />
+    <Trace from=".R1 > .right" to=".C1 > .left" />
+    <Trace from=".U1 > .THRES" to=".C1 > .left" />
+    <Trace from=".U1 > .TRIG" to=".C1 > .left" />
+    <Trace
       from=".C1 > .right"
       to=".B1 > .neg"
+      thickness="0.6mm"
       schematic_route_hints={[
         {
           x: -4,
@@ -159,7 +182,7 @@ export const MyCircuit = () => (
         },
       ]}
     />
-    <trace
+    <Trace
       from=".U1 > .GND"
       to=".C1 > .right"
       pcb_route_hints={[
@@ -170,14 +193,29 @@ export const MyCircuit = () => (
         },
         {
           x: 14,
-          y: 2,
+          y: 12,
           via: true,
         },
       ]}
     />
-    <trace from=".R3 > .right" to=".C1 > .right" />
-    <trace from=".LED > .right" to=".R3 > .left" />
-    <trace from=".U1 > .OUT" to=".LED > .left" />
+    <Trace from=".R3 > .right" to=".C1 > .right" />
+    <Trace from=".LED > .right" to=".R3 > .left" />
+    <Trace
+      from=".U1 > .OUT"
+      to=".LED > .left"
+      pcb_route_hints={[
+        {
+          x: 19,
+          y: 1,
+          via: true,
+        },
+        {
+          x: 26,
+          y: 0,
+          via: true,
+        },
+      ]}
+    />
     <bug
       name="S1"
       pcb_x={0}
@@ -208,10 +246,25 @@ export const MyCircuit = () => (
         6: "6",
       }}
     />
-    <trace from=".U1 > .RESET" to=".S1 > .3" />
-    <trace from=".R2 > .left" to=".S1 > .3" />
-    <trace from=".U1 > .VCC" to=".S1 > .3" />
+    <Trace
+      from=".U1 > .RESET"
+      to=".S1 > .3"
+      pcb_route_hints={[
+        {
+          x: 16,
+          y: 3,
+          via: true,
+        },
+        {
+          x: 16,
+          y: -6,
+          via: true,
+        },
+      ]}
+    />
+    <Trace from=".R2 > .left" to=".S1 > .3" />
+    <Trace from=".U1 > .VCC" to=".S1 > .3" />
 
-    <trace from=".B2 > .pos" to=".S1 > .2" />
+    <Trace from=".B2 > .pos" to=".S1 > .2" thickness="0.6mm" />
   </board>
 )
