@@ -253,7 +253,7 @@ export const MyCircuit = () => (
         <SmallOutline
           pad_count={6}
           pad_length={1}
-          pad_width={1.5}
+          pad_width={2}
           pad_pitch={2.5}
           row_spacing={4.5}
         />
