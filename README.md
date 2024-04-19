@@ -1,12 +1,12 @@
-# .
+# blinking-led-circuit
 
 [![tscircuit version badge](https://registry-api.tscircuit.com/badges/view?package_name=.)](https://registry.tscircuit.com/.)
-
-
 
 > This project was generated using [tsci](https://github.com/tscircuit/tscircuit)
 
 To develop and view the examples, run `tsci dev` and open [http://localhost:3020](http://localhost:3020) in your browser.
+
+This project was created over the course of two live streams [1](https://x.com/seveibar/status/1780350807960883604) [2](https://x.com/seveibar/status/1780613499795988794) and resulted in the first order of a fully assembled PCB made completely with tscircuit!
 
 ## Developing
 
