@@ -1,4 +1,4 @@
-# blinking-led-circuit
+# @tscircuit/blinking-led-circuit
 
 [![tscircuit version badge](https://registry-api.tscircuit.com/badges/view?package_name=.)](https://registry.tscircuit.com/.)
 

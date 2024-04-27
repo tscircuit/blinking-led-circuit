@@ -1,21 +1,30 @@
 {
-  "name": ".",
-  "module": "index.ts",
+  "name": "@tscircuit/blinking-led-circuit",
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
-    "tscircuit": "^0.0.52"
+    "tscircuit": "^0.0.52",
+    "tsup": "^8.0.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "scripts": {
     "start": "npm run dev",
+    "build": "tsup ./index.ts --dts --sourcemap",
     "dev": "tsci dev"
   },
   "dependencies": {
     "@tscircuit/builder": "1.5.69",
     "@tscircuit/footprints": "0.0.17",
     "@tscircuit/react-fiber": "^1.0.35"
-  }
+  },
+  "version": "0.0.1",
+  "main": "./dist/index.cjs",
+  "types": "./index.ts",
+  "files": [
+    "dist",
+    "index.ts",
+    "lib"
+  ]
 }
